@@ -13,6 +13,8 @@ gem 'jbuilder',       '~> 2.0'
 gem 'sdoc',           '~> 0.4.0', group: :doc
 gem 'simple_form',     '~> 3.1.0'
 gem 'devise',         '~> 3.5.0'
+gem 'nokogiri', require: 'nokogiri'
+gem 'mechanize', require: 'mechanize'
 group :development, :test do
   gem 'pry'
   gem 'web-console',  '~> 2.0'
