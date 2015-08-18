@@ -11,10 +11,59 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150814104236) do
+ActiveRecord::Schema.define(version: 20150817122631) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "bodies", force: :cascade do |t|
+    t.text     "text"
+    t.integer  "content_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "bodies", ["content_id"], name: "index_bodies_on_content_id", using: :btree
+
+  create_table "categories", force: :cascade do |t|
+    t.string   "name"
+    t.string   "link_url"
+    t.boolean  "enable",     default: true
+    t.integer  "website_id"
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+  end
+
+  add_index "categories", ["website_id"], name: "index_categories_on_website_id", using: :btree
+
+  create_table "contents", force: :cascade do |t|
+    t.string   "title"
+    t.string   "link_url"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.integer  "category_id"
+  end
+
+  add_index "contents", ["category_id"], name: "index_contents_on_category_id", using: :btree
+
+  create_table "images", force: :cascade do |t|
+    t.string   "link_url"
+    t.integer  "content_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "images", ["content_id"], name: "index_images_on_content_id", using: :btree
+
+  create_table "selectors", force: :cascade do |t|
+    t.string   "selector"
+    t.string   "selector_type"
+    t.integer  "website_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
+  add_index "selectors", ["website_id"], name: "index_selectors_on_website_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -35,4 +84,16 @@ ActiveRecord::Schema.define(version: 20150814104236) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
+  create_table "websites", force: :cascade do |t|
+    t.string   "name"
+    t.string   "link_url"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_foreign_key "bodies", "contents"
+  add_foreign_key "categories", "websites"
+  add_foreign_key "contents", "categories"
+  add_foreign_key "images", "contents"
+  add_foreign_key "selectors", "websites"
 end
