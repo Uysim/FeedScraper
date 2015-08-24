@@ -3,6 +3,7 @@ class Category < ActiveRecord::Base
   belongs_to :website
 
   def fetch_content(home_page_agent)
+    sleep 3
     type_page = home_page_agent.page.link_with(text: name, href: link_url).click
     type_page_agent = create_agent type_page.uri
     type_contents = type_page.search website.get_selector(:content_link)
@@ -24,8 +25,12 @@ class Category < ActiveRecord::Base
   end
 
   def create_content(title,imgs,bodies,content_page_uri)
-    content = contents.where(title: title.text, link_url: content_page_uri).first_or_create
-    content.create_content_images(imgs)
-    content.create_content_bodies(bodies)
+    content = contents.where(title: title.text, link_url: content_page_uri)
+    unless content.any?
+      content = contents.create(title: title.text, link_url: content_page_uri)
+      content.create_content_images(imgs)
+      content.create_content_bodies(bodies)
+    end
+
   end
 end
