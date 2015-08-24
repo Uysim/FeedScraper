@@ -25,4 +25,8 @@ class Website < ActiveRecord::Base
       category.fetch_content(home_page_agent)
     end
   end
+
+  def self.count_scraping
+    where(scraping: true).count
+  end
 end
