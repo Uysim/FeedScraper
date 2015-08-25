@@ -5,4 +5,12 @@ class WebsitesController < ApplicationController
   def show
     @website = Website.find(params[:id])
   end
+  def new
+    @website = Website.new
+    @website.selectors.build
+  end
+
+  def create
+
+  end
 end

@@ -3,6 +3,8 @@ class Website < ActiveRecord::Base
   has_many :categories
   has_many :contents
 
+  accepts_nested_attributes_for :selectors, reject_if: proc { |attributes| attributes[:selector].blank? }, :allow_destroy => true
+
   def get_selector(key)
     selectors.where(selector_type: Selector::TYPE[key]).first.try(:selector)
   end

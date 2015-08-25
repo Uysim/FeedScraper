@@ -18,6 +18,7 @@ gem 'mechanize', require: 'mechanize'
 gem 'sidekiq'
 gem 'sinatra', require: false
 gem 'slim'
+gem 'cocoon'
 group :development, :test do
   gem 'pry'
   gem 'web-console',  '~> 2.0'
