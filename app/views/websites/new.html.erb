@@ -1,0 +1,19 @@
+<h1>New Website</h1>
+<%= simple_form_for @website do |f| %>
+  <div class="form-group">
+    <%= f.input :name, input_html: { class: "form-control" } %>
+  </div>
+  <div class="form-group">
+    <%= f.input :link_url, input_html: { class: "form-control" } %>
+  </div>
+  <div class="selectors">
+    <h3>Selector</h3>
+    <%= f.simple_fields_for :selectors do |builder| %>
+      <%= render "selector_fields", f: builder %>
+    <% end %>
+    <div class="add_more_selector">
+     <%= link_to_add_association '<i class="fa fa-plus"></i> Add Selector'.html_safe, f, :selectors,{class: "btn btn-primary",id: "add_selector",partial: 'selector_fields'} %>
+    </div>
+  </div>
+
+<% end %>
