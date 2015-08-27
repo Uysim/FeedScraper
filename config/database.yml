@@ -81,5 +81,6 @@ test:
 production:
   <<: *default
   database: feedscraper_production
-  username: feedscraper
+  host: localhost
+  username: feed_scraper
   password: <%= ENV['FEEDSCRAPER_DATABASE_PASSWORD'] %>
