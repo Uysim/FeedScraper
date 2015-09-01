@@ -1,6 +1,6 @@
 class Content < ActiveRecord::Base
   belongs_to :website
-  belongs_to :category
+  belongs_to :contentable, polymorphic: true
   has_many :images
   has_many :bodies
 

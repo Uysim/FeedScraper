@@ -28,3 +28,6 @@ w.selectors.create([
   {:selector_type=>"Content Image", :selector=>"body div#rbContent div.pageContainer div#rbSkin div.articleContent div.article-main-body figure.image span.imageContainer img"},
   {:selector_type=>"Content Body", :selector=>"body div#rbContent div.pageContainer div#rbSkin div.articleContent article#article-body div.article-main-body p"}
 ])
+
+# body article#article-body span.credit
+w.remove_selectors.create(selector: 'body article#article-body span.credit', selector_page: 'Content Page')
