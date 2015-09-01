@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150823002711) do
+ActiveRecord::Schema.define(version: 20150829035609) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -39,12 +39,11 @@ ActiveRecord::Schema.define(version: 20150823002711) do
   create_table "contents", force: :cascade do |t|
     t.string   "title"
     t.string   "link_url"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-    t.integer  "category_id"
+    t.integer  "contentable_id"
+    t.string   "contentable_type"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
   end
-
-  add_index "contents", ["category_id"], name: "index_contents_on_category_id", using: :btree
 
   create_table "images", force: :cascade do |t|
     t.string   "link_url"
@@ -54,6 +53,16 @@ ActiveRecord::Schema.define(version: 20150823002711) do
   end
 
   add_index "images", ["content_id"], name: "index_images_on_content_id", using: :btree
+
+  create_table "remove_selectors", force: :cascade do |t|
+    t.string   "selector"
+    t.string   "selector_page"
+    t.integer  "website_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
+  add_index "remove_selectors", ["website_id"], name: "index_remove_selectors_on_website_id", using: :btree
 
   create_table "selectors", force: :cascade do |t|
     t.string   "selector"
@@ -87,14 +96,13 @@ ActiveRecord::Schema.define(version: 20150823002711) do
   create_table "websites", force: :cascade do |t|
     t.string   "name"
     t.string   "link_url"
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
-    t.boolean  "scraping",   default: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   add_foreign_key "bodies", "contents"
   add_foreign_key "categories", "websites"
-  add_foreign_key "contents", "categories"
   add_foreign_key "images", "contents"
+  add_foreign_key "remove_selectors", "websites"
   add_foreign_key "selectors", "websites"
 end

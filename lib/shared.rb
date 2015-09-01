@@ -8,7 +8,7 @@ module Shared
 
   def click_link(page,href)
     if href
-      content_link = page.page.link_with(href: href)
+      content_link = page.link_with(href: href)
       if content_link
         sleep Random.rand(9)+1
         content_page=content_link.click
