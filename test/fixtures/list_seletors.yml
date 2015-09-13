@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  seletor: MyString
+  selector_type: MyString
+  website_id: 
+
+two:
+  seletor: MyString
+  selector_type: MyString
+  website_id: 

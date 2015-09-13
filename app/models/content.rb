@@ -1,8 +1,7 @@
 class Content < ActiveRecord::Base
   belongs_to :website
   belongs_to :contentable, polymorphic: true
-  has_many :images
-  has_many :bodies
+  has_many :content_references
 
   def create_content_images(imgs)
     imgs.each do |img|

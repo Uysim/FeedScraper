@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150829035609) do
+ActiveRecord::Schema.define(version: 20150912023000) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,13 +36,52 @@ ActiveRecord::Schema.define(version: 20150829035609) do
 
   add_index "categories", ["website_id"], name: "index_categories_on_website_id", using: :btree
 
+  create_table "categories_selectors", force: :cascade do |t|
+    t.string   "selector"
+    t.string   "selector_type"
+    t.integer  "website_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
+  add_index "categories_selectors", ["website_id"], name: "index_categories_selectors_on_website_id", using: :btree
+
+  create_table "content_references", force: :cascade do |t|
+    t.integer  "content_id"
+    t.integer  "datarable_id"
+    t.string   "datarable_type"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
+
+  add_index "content_references", ["content_id"], name: "index_content_references_on_content_id", using: :btree
+
+  create_table "content_selectors", force: :cascade do |t|
+    t.string   "selector"
+    t.string   "selector_type"
+    t.integer  "website_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
+  add_index "content_selectors", ["website_id"], name: "index_content_selectors_on_website_id", using: :btree
+
   create_table "contents", force: :cascade do |t|
     t.string   "title"
     t.string   "link_url"
+    t.string   "thumnail"
+    t.string   "snippet"
     t.integer  "contentable_id"
     t.string   "contentable_type"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
+  end
+
+  create_table "headers", force: :cascade do |t|
+    t.string   "text"
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "images", force: :cascade do |t|
@@ -54,17 +93,7 @@ ActiveRecord::Schema.define(version: 20150829035609) do
 
   add_index "images", ["content_id"], name: "index_images_on_content_id", using: :btree
 
-  create_table "remove_selectors", force: :cascade do |t|
-    t.string   "selector"
-    t.string   "selector_page"
-    t.integer  "website_id"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
-  end
-
-  add_index "remove_selectors", ["website_id"], name: "index_remove_selectors_on_website_id", using: :btree
-
-  create_table "selectors", force: :cascade do |t|
+  create_table "list_selectors", force: :cascade do |t|
     t.string   "selector"
     t.string   "selector_type"
     t.integer  "website_id"
@@ -72,7 +101,17 @@ ActiveRecord::Schema.define(version: 20150829035609) do
     t.datetime "updated_at",    null: false
   end
 
-  add_index "selectors", ["website_id"], name: "index_selectors_on_website_id", using: :btree
+  add_index "list_selectors", ["website_id"], name: "index_list_selectors_on_website_id", using: :btree
+
+  create_table "remove_selectors", force: :cascade do |t|
+    t.string   "selector"
+    t.string   "selector_type"
+    t.integer  "website_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
+  add_index "remove_selectors", ["website_id"], name: "index_remove_selectors_on_website_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -102,7 +141,10 @@ ActiveRecord::Schema.define(version: 20150829035609) do
 
   add_foreign_key "bodies", "contents"
   add_foreign_key "categories", "websites"
+  add_foreign_key "categories_selectors", "websites"
+  add_foreign_key "content_references", "contents"
+  add_foreign_key "content_selectors", "websites"
   add_foreign_key "images", "contents"
+  add_foreign_key "list_selectors", "websites"
   add_foreign_key "remove_selectors", "websites"
-  add_foreign_key "selectors", "websites"
 end

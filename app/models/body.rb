@@ -1,3 +1,3 @@
 class Body < ActiveRecord::Base
-  belongs_to :content
+  has_one :content_reference, as: :datarable, dependent: :destroy
 end

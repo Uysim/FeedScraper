@@ -1,6 +1,6 @@
-class CreateSelectors < ActiveRecord::Migration
+class CreateContentSelectors < ActiveRecord::Migration
   def change
-    create_table :selectors do |t|
+    create_table :content_selectors do |t|
       t.string :selector
       t.string :selector_type
       t.references :website, index: true, foreign_key: true

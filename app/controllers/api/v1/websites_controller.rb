@@ -1,4 +1,4 @@
-class WebsitesController < ApplicationController
+class Api::V1::WebsitesController < ApplicationController
   def index
     @websites = Website.all
   end
@@ -7,10 +7,7 @@ class WebsitesController < ApplicationController
   end
   def new
     @website = Website.new
-    @website.categories_selectors.build
-    @website.list_selectors.build
-    @website.content_selectors.build
-    @website.remove_selectors.build
+    # @website.selectors.build
   end
 
   def create
@@ -39,9 +36,7 @@ class WebsitesController < ApplicationController
   private
   def website_params
     params.require(:website).permit(:name,:link_url,
-      categories_selectors_attributes: [:id,:selector,:selector_type,:_destroy],
-      list_selectors_attributes: [:id,:selector,:selector_type,:_destroy],
-      content_selectors_attributes: [:id,:selector,:selector_type,:_destroy],
+      selectors_attributes: [:id,:selector,:selector_type,:_destroy],
       remove_selectors_attributes: [:id,:selector,:selector_page,:_destroy]
       )
   end

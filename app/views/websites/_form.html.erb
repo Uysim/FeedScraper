@@ -6,23 +6,50 @@
     <%= f.input :link_url, input_html: { class: "form-control" } %>
   </div>
   <div class="selectors">
-    <h3>Selector</h3>
-    <%= f.simple_fields_for :selectors do |builder| %>
+    <h3>Cate Selector</h3>
+    <%= f.simple_fields_for :categories_selectors do |builder| %>
       <%= render "selector_fields", f: builder %>
     <% end %>
     <div class="add_more_selector">
-     <%= link_to_add_association '<i class="fa fa-plus"></i> Add Selector'.html_safe, f, :selectors,{class: "btn btn-primary",id: "add_selector",partial: 'selector_fields'} %>
+     <%= link_to_add_association '<i class="fa fa-plus"></i> Add Cat Selector'.html_safe, f, :categories_selectors,{class: "btn btn-primary",id: "add_selector",partial: 'selector_fields'} %>
+    </div>
+  </div>
+
+  <div class="selectors">
+    <h3>list Selector</h3>
+    <%= f.simple_fields_for :list_selectors do |builder| %>
+      <%= render "selector_fields", f: builder %>
+    <% end %>
+    <div class="add_more_selector">
+     <%= link_to_add_association '<i class="fa fa-plus"></i> Add list Selector'.html_safe, f, :list_selectors,{class: "btn btn-primary",id: "add_selector",partial: 'selector_fields'} %>
+    </div>
+  </div>
+
+  <div class="selectors">
+    <h3>Content Selector</h3>
+    <%= f.simple_fields_for :content_selectors do |builder| %>
+      <%= render "selector_fields", f: builder %>
+    <% end %>
+    <div class="add_more_selector">
+     <%= link_to_add_association '<i class="fa fa-plus"></i> Add Content Selector'.html_safe, f, :content_selectors,{class: "btn btn-primary",id: "add_selector",partial: 'selector_fields'} %>
     </div>
   </div>
 
   <div class="remove_selectors">
     <h3>Remove Selector</h3>
     <%= f.simple_fields_for :remove_selectors do |builder| %>
-      <%= render "remove_selector_fields", f: builder %>
+      <%= render "selector_fields", f: builder %>
     <% end %>
     <div class="add_more_selector">
-     <%= link_to_add_association '<i class="fa fa-plus"></i> Add Remove Selector'.html_safe, f, :remove_selectors,{ class: "btn btn-primary", id: "add_remove_selector", partial: 'remove_selector_fields' } %>
+     <%= link_to_add_association '<i class="fa fa-plus"></i> Add Remove Selector'.html_safe, f, :remove_selectors,{ class: "btn btn-primary", id: "add_remove_selector", partial: 'selector_fields' } %>
     </div>
+  </div>
+
+  <div class="category">
+    <h3>Category</h3>
+    <%= f.simple_fields_for :categories do |builder| %>
+      <%= render "category_fields", f: builder %>
+    <% end %>
   </div>
   <%= f.submit %>
 <% end %>

@@ -1,9 +1,11 @@
 <div class="nested-fields">
-  <div class="col-xs-4">
-    <%= f.input :selector, label: false, input_html: { class: "form-control" } %>
+  <div class="row">
+    <div class="col-xs-4">
+      <%= f.input :selector, label: false, input_html: { class: "form-control" } %>
+    </div>
+    <div class="col-xs-4">
+    <%= f.input :selector_type, as: :select, label: false,collection: f.object.class::TYPE.values, input_html: { class: "form-control" } %>
+    </div>
+    <%= link_to_remove_association 'X'.html_safe, f,  {class: "btn btn-danger"} %>
   </div>
-  <div class="col-xs-4">
-  <%= f.input :selector_type, as: :select, label: false,collection: Selector::TYPE.values, input_html: { class: "form-control" } %>
-  </div>
-  <%= link_to_remove_association 'X'.html_safe, f,  {class: "btn btn-danger"} %>
 </div>

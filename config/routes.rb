@@ -6,10 +6,14 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
   root 'pages#home'
-
+  namespace :api do
+    namespace :v1 do
+      resources :websites
+      resources :categories
+      resources :contents
+    end
+  end
   resources :websites
-  resources :categories
-  resources :contents
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

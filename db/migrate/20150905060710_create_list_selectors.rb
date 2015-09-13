@@ -1,6 +1,6 @@
-class CreateRemoveSelectors < ActiveRecord::Migration
+class CreateListSelectors < ActiveRecord::Migration
   def change
-    create_table :remove_selectors do |t|
+    create_table :list_selectors do |t|
       t.string :selector
       t.string :selector_type
       t.references :website, index: true, foreign_key: true
