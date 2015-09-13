@@ -32,6 +32,7 @@ w.content_selectors.create([
 # body article#article-body span.credit
 w.remove_selectors.create([
   { selector: 'body article#article-body span.credit', selector_type: 'Content Page' },
-  { selector: 'body article#article-body a.clickToEnlarge', selector_type: 'Content Page'}
+  { selector: 'body article#article-body a.clickToEnlarge', selector_type: 'Content Page'},
+  { selector: 'body article#article-body figure.image figcaption', selector_type: 'Content Page'}
 
 ])
