@@ -1,15 +1,16 @@
 class FecthContentWorker
   include Sidekiq::Worker
-  sidekiq_options retry: false
-  def perform()
-    while true
-      websites = Website.all
-      websites.each do |website|
-        website.fetch_type
-        sleep Random.rand(9)+1
-        website.fetch_content(100)
-      end
-      sleep 60*60
+  def perform(id)
+    website = Website.find(id)
+    if website
+      website.fetch_type
+      sleep Random.rand(9)+1
+      website.fetch_content(5)
+      FecthContentWorker.perform_in(5, id+1)
+    elsif Website.where('id > ?', id).any?
+      FecthContentWorker.perform_in(5, id+1)
+    else
+      FecthContentWorker.perform_in(60*60, Website.first.id)
     end
   end
 end
