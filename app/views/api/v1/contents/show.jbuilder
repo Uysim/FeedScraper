@@ -24,3 +24,4 @@ html_body=content_references.each_with_index.map do |cr,index|
 end.join('')
 
 json.data "#{html_title}#{html_body}"
+json.created_at @content.created_at.strftime("%B %d, %Y")
