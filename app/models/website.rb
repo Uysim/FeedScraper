@@ -1,9 +1,10 @@
 class Website < ActiveRecord::Base
-  has_many :remove_selectors
-  has_many :categories
-  has_many :categories_selectors
-  has_many :list_selectors
-  has_many :content_selectors
+  has_many :remove_selectors, dependent: :destroy
+  has_many :categories, dependent: :destroy
+  has_many :contents, through: :categories
+  has_many :categories_selectors, dependent: :destroy
+  has_many :list_selectors, dependent: :destroy
+  has_many :content_selectors, dependent: :destroy
   accepts_nested_attributes_for :categories_selectors, reject_if: proc { |attributes| attributes[:selector].blank? }, :allow_destroy => true
   accepts_nested_attributes_for :list_selectors, reject_if: proc { |attributes| attributes[:selector].blank? }, :allow_destroy => true
   accepts_nested_attributes_for :content_selectors, reject_if: proc { |attributes| attributes[:selector].blank? }, :allow_destroy => true

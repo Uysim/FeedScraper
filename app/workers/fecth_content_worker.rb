@@ -1,7 +1,7 @@
 class FecthContentWorker
   include Sidekiq::Worker
   def perform(id)
-    website = Website.find(id)
+    website = Website.find_by_id(id)
     if website
       website.fetch_type
       sleep Random.rand(9)+1

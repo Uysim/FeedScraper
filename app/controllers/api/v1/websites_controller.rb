@@ -3,7 +3,9 @@ class Api::V1::WebsitesController < ApplicationController
     @websites = Website.all
   end
   def show
-    @website = Website.find(params[:id])
+    # @website = Website.find(params[:id])
+    website = JSON.parse(File.read("public/json_file/websites/1.json"))
+    render json: website
   end
   def new
     @website = Website.new

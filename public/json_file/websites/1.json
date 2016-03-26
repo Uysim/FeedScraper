@@ -1,1 +1,137 @@
-{"name":"CNET","categories":[{"id":1,"name":"Apple"},{"id":2,"name":"Computers"},{"id":3,"name":"Crave"},{"id":4,"name":"Deals"},{"id":5,"name":"Google"},{"id":6,"name":"Internet"},{"id":7,"name":"Microsoft"},{"id":8,"name":"Mobile"},{"id":9,"name":"Photography"},{"id":10,"name":"Security"},{"id":11,"name":"Sci-Tech"},{"id":12,"name":"Tech Culture"},{"id":13,"name":"Tech Industry"},{"id":14,"name":"Photo Galleries"},{"id":15,"name":"Video"}]}
+{
+  "name": "CNET",
+  "sliders": [
+    {
+      "id": 154,
+      "name": "Microsoft Cortana may be headed to your car",
+      "thumnail": "http:\/\/cnet2.cbsistatic.com\/hub\/i\/r\/2015\/06\/10\/0edb796c-5aa5-4b85-be61-1692dfa97dae\/thumbnail\/170x128\/92ba8653df84642ab241ab37b2d086ed\/river-hey-cortana.jpg"
+    },
+    {
+      "id": 155,
+      "name": "Microsoft dangles one-day sale on everything from PCs to smartphones",
+      "thumnail": "http:\/\/cnet1.cbsistatic.com\/hub\/i\/r\/2015\/09\/16\/8bd578f2-4f9d-4d32-9585-5a55320a1d98\/thumbnail\/170x128\/db09368c69a84dd3e2b9367ada285512\/surface-pro-3.jpg"
+    },
+    {
+      "id": 156,
+      "name": "Microsoft event coming to NY October 6: Surface expected",
+      "thumnail": "http:\/\/cnet4.cbsistatic.com\/hub\/i\/r\/2015\/09\/14\/6be4f03d-04ba-440b-8b3e-1e4eda1262fd\/thumbnail\/170x128\/327e681de2987e797908b3de7694d181\/screen-shot-2015-09-14-at-11-16-32-am.png"
+    },
+    {
+      "id": 157,
+      "name": "How to use the iPad's new keyboard on iOS 9",
+      "thumnail": "http:\/\/cnet4.cbsistatic.com\/hub\/i\/r\/2015\/09\/16\/69ae5cd1-402a-44b6-9979-8846729da4b2\/thumbnail\/170x128\/e1cffaadb3d8447a5160e719bb27edae\/ios-9-ipad-keyboard.jpg"
+    },
+    {
+      "id": 158,
+      "name": "3D-printed iPhone case won't let you take unoriginal tourist photos",
+      "thumnail": "http:\/\/cnet3.cbsistatic.com\/hub\/i\/r\/2015\/09\/15\/d45b856e-c597-4691-acd8-d2abd6ea0182\/thumbnail\/170x128\/ae6c6c7258ce2dae97f301a3630e2d3f\/restricta-no-photos.jpg"
+    }
+  ],
+  "categories": [
+    {
+      "id": 1,
+      "name": "Apple"
+    },
+    {
+      "id": 2,
+      "name": "Computers"
+    },
+    {
+      "id": 3,
+      "name": "Crave"
+    },
+    {
+      "id": 4,
+      "name": "Deals"
+    },
+    {
+      "id": 5,
+      "name": "Google"
+    },
+    {
+      "id": 6,
+      "name": "Internet"
+    },
+    {
+      "id": 7,
+      "name": "Microsoft"
+    },
+    {
+      "id": 8,
+      "name": "Mobile"
+    },
+    {
+      "id": 9,
+      "name": "Photography"
+    },
+    {
+      "id": 10,
+      "name": "Security"
+    },
+    {
+      "id": 11,
+      "name": "Sci-Tech"
+    },
+    {
+      "id": 12,
+      "name": "Tech Culture"
+    },
+    {
+      "id": 13,
+      "name": "Tech Industry"
+    },
+    {
+      "id": 14,
+      "name": "Photo Galleries"
+    },
+    {
+      "id": 15,
+      "name": "Video"
+    },
+    {
+      "id": 16,
+      "name": "Forums"
+    },
+    {
+      "id": 17,
+      "name": "Computer Help"
+    },
+    {
+      "id": 18,
+      "name": "Computer Newbies"
+    },
+    {
+      "id": 19,
+      "name": "Laptops"
+    },
+    {
+      "id": 20,
+      "name": "Phones"
+    },
+    {
+      "id": 21,
+      "name": "TVs & Home Theaters"
+    },
+    {
+      "id": 22,
+      "name": "Networking & Wireless"
+    },
+    {
+      "id": 23,
+      "name": "Windows 7"
+    },
+    {
+      "id": 24,
+      "name": "Windows 10"
+    },
+    {
+      "id": 25,
+      "name": "Cameras"
+    },
+    {
+      "id": 26,
+      "name": "All Forums"
+    }
+  ]
+}
+
