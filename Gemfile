@@ -19,6 +19,14 @@ gem 'sidekiq'
 gem 'sinatra', require: false
 gem 'slim'
 gem 'cocoon'
+gem 'dotenv-rails'
+
+group :development do
+  gem 'capistrano-rails',     '~> 1.1.6'
+  gem 'capistrano-passenger', '~> 0.2.0'
+  gem 'capistrano-rvm',       '~> 0.1.2'
+end
+
 group :development, :test do
   gem 'pry'
   gem 'web-console',  '~> 2.0'
