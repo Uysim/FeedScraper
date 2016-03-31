@@ -16,7 +16,11 @@ class Category < ActiveRecord::Base
         end
       end
     end
-
+    if contents.any?
+      self.enable = true
+    else
+      self.enable = false
+    end
   end
 
   def to_content_page(type_page,selectors,list_element={})
