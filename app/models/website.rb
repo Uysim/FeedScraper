@@ -47,7 +47,7 @@ class Website < ActiveRecord::Base
     puts "Fetching Content : #{name}"
     home_page_agent = create_agent link_url
     selectors=all_selectors
-    categories.where(enable: true).each do |category|
+    categories.each do |category|
       category.fetch_content(selectors,home_page_agent,lim)
     end
   end

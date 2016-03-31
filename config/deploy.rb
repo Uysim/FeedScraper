@@ -12,7 +12,7 @@ set :linked_files, fetch(:linked_files, []).push('.env')
 
 set :scm, :git
 
-set :pty, true
+set :pty, false
 
 set :keep_releases, 5
 
@@ -22,6 +22,13 @@ namespace :deploy do
     on roles :all do
       execute "cd #{release_path}/ && ~/.rvm/bin/rvm default do bundle exec rake assets:clobber RAILS_ENV=#{fetch(:stage)}"
     end
+  end
+
+  task :add_default_hooks do
+    after 'deploy:starting', 'sidekiq:quiet'
+    after 'deploy:updated', 'sidekiq:stop'
+    after 'deploy:reverted', 'sidekiq:stop'
+    after 'deploy:published', 'sidekiq:start'
   end
 
   before :updated, :cleanup_assets
