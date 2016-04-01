@@ -17,9 +17,9 @@ class Category < ActiveRecord::Base
       end
     end
     if contents.any?
-      self.enable = true
+      update_attributes(enable: true)
     else
-      self.enable = false
+      update_attributes(enable: false)
     end
   end
 
