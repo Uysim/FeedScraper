@@ -7,7 +7,7 @@ end
 items=request.query_parameters[:items].to_i
 page=request.query_parameters[:page].to_i
 
-json.contents @category.contents.limit(items).offset(page*items) do |content|
+json.contents @category.contents.order(created_at: :desc).limit(items).offset(page*items) do |content|
   json.id content.id
   json.name content.title
   json.thumnail content.thumnail
