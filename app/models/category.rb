@@ -68,7 +68,7 @@ class Category < ActiveRecord::Base
   end
 
   def creat_content(datarables,title,thumnail,snippet,content_page_url,data_selectors)
-    if datarables.any? && !title.blank? && !contents.where(title: title, link_url: content_page_url).any?
+    if datarables.any? && !title.blank? && !contents.where(title: title).any?
       content = contents.create(title: title, link_url: content_page_url,thumnail: thumnail, snippet: snippet)
       datarables.each do |datarable|
         if data_selectors[:para].map { |e| e[:element][:name] }.include?(datarable.name.downcase) && !datarable.text.blank?
