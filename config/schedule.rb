@@ -1,3 +1,3 @@
-every 1.hours do
+every 1.days do
   rake "perform:fetch", , environment: 'production'
 end
