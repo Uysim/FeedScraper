@@ -20,12 +20,12 @@ gem 'sinatra', require: false
 gem 'slim'
 gem 'cocoon'
 gem 'dotenv-rails'
+gem 'whenever'
 
 group :development do
   gem 'capistrano-rails',     '~> 1.1.6'
   gem 'capistrano-passenger', '~> 0.2.0'
   gem 'capistrano-rvm',       '~> 0.1.2'
-  gem 'capistrano-sidekiq',   '~> 0.5.4'
 end
 
 group :development, :test do
